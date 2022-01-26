@@ -11,6 +11,9 @@ if __name__=='__main__':
 	list=[]
 	ip=sys.argv[1]
 	for port in range(0,65535):
-		thread.start_new_thread(connect,(ip,port))
+		try:
+			thread.start_new_thread(connect,(ip,port))
+		except:
+			connect(ip, port)
 	print ('The following port is open.')
 	print list
